@@ -97,6 +97,7 @@ def main():
 
             
             '''
+            # It looks like it is working pretty well to me.
             
             lasers.append([math.atan2(cursor[1]-(player_pos[1]+20), cursor[0]-(player_pos[0]+30)), player_pos[0]+30, player_pos[1]+20])
             shoot = True
@@ -142,7 +143,16 @@ def main():
 
             
             '''
-
+            # Yes, you should remove the lasers when they go off screen.
+            # You should draw all the lasers in your list of lasers.  That would be
+            # be another for loop for drawing the lasers.  You
+            # should wait until you draw to do the rotation and then
+            # instead of using draw_laser - just draw everything in the lasers list.
+            # you should also remove lasers when they hit asteroids.
+            # It would be a better not using shoot==True.  Instead
+            # just add the laser to the list.  If there is a laser in your list
+            # move it forward, remove it if it is too far out or hits something.
+            
             for j in lasers:
                laser1 = pygame.transform.rotate(laser, 270-(j[0]*(180/pi)))
                draw_laser = True
